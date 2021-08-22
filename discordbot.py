@@ -23,10 +23,9 @@ import time
 def convert(sec):
     minits = sec // 60
     second = sec % 60
-    milli_sec = (second - int(second)) * 1000
     hour = minits // 60
     min = minits % 60
-    return f"{int(hour)}:{int(min)}:{int(second)}:{int(milli_sec)}"
+    return f"{int(hour)}:{int(min)}:{int(second)}"
 
 
 @client.event
@@ -34,7 +33,7 @@ async def on_message(message):
     # メッセージ送信者がmemberだった場合は無視する
     if message.author.member:
         return
-    # 「/start」と発言したら「にゃーん」が返る処理
+    
     if message.content == '/start':
         start_signal = input('Push "ENTER" to Start')
         start_time = time.time()

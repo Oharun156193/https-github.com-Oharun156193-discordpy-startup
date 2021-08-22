@@ -36,9 +36,11 @@ async def on_message(message):
         return
     # 「/start」と発言したら「にゃーん」が返る処理
     if message.content == '/start':
-    #/startとbotが発言したときタイマーが始まる
-    start_signal = input('Push "ENTER" to Start')
-    start_time = time.time()
+        start_signal = input('Push "ENTER" to Start')
+        start_time = time.time()
+        await message.channel.send(start_time)
+    #通話終了と発言したら終わった時間を表示する
+    if message.content == '通話終了':
     stop_signal = input('Push "ENTER" to Stop')
     stop_time = time.time()
     result = stop_time - start_time
